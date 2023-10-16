@@ -4,7 +4,6 @@ import models
 from uuid import uuid4
 from datetime import datetime
 
-
 class BaseModel:
     """this is a comment"""
 
@@ -23,6 +22,7 @@ class BaseModel:
         else:
             self.id = str(uuid4())
             self.created_at = datetime.today()
+            models.storage.new(self)
     def __str__(self):
         """printing the value"""
         cls = self.__class__.__name__
@@ -31,6 +31,7 @@ class BaseModel:
     def save(self):
         """ save the file """
         self.updated_at = datetime.today()
+        models.storage.save()
 
     def to_dict(self):
         """return the all dictionary"""
