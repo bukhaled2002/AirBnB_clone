@@ -11,7 +11,7 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Initialize a new BaseModel
         """
-
+        tf = "%Y-%m-%dT%H:%M:%S.%f"
 
         self.updated_at = datetime.today()
         if len(kwargs) != 0:
