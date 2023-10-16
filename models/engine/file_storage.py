@@ -3,6 +3,7 @@
 import json
 from models.base_model import BaseModel
 
+
 class FileStorage:
     """Represent an abstracted storage engine."""
 
@@ -31,7 +32,7 @@ class FileStorage:
             with open(FileStorage.__file_path) as f:
                 obdict = json.load(f)
                 for item in obdict.values():
-                    class_name= item["__class__"]
+                    class_name = item["__class__"]
                     del item["__class__"]
                     self.new(eval(class_name)(**item))
         except FileNotFoundError:
