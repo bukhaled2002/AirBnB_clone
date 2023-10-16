@@ -33,6 +33,6 @@ class FileStorage:
                 for item in obdict.values():
                     class_name= item["__class__"]
                     del item["__class__"]
-                    slef.new(eval(class_name)(**o))
+                    self.new(eval(class_name)(**item))
         except FileNotFoundError:
             return
